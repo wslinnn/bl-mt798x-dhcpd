@@ -115,7 +115,9 @@ jobs:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           prerelease: ${{ env.PRERELEASE == 'true' }}
-          files: ./wrt/upload/*.bin
+          files: |
+            ./wrt/upload/*.bin
+            ./wrt/upload/*.img
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
